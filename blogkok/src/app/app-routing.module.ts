@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'about', loadChildren: () => import('./views/pages/about/about.module').then(m => m.AboutModule) },
   { path: 'blog', loadChildren: () => import('./views/pages/blog/blog.module').then(m => m.BlogModule) },
   { path: 'post', loadChildren: () => import('./views/pages/post/post.module').then(m => m.PostModule) },
+  { path: 'login', loadChildren: () => import('./views/admin/login/login.module').then(m => m.LoginModule) },
+  { path: 'register', loadChildren: () => import('./views/admin/register/register.module').then(m => m.RegisterModule) },
   { path: '**', loadChildren: () => import('./views/pages/error/error.module').then(m => m.ErrorModule) },
 ];
 
