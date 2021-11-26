@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-blog-comment',
   templateUrl: './blog-comment.component.html',
-  styleUrls: ['./blog-comment.component.scss']
+  styleUrls: ['./blog-comment.component.scss'],
 })
 export class BlogCommentComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
+  comment: string = 'Hello';
 }

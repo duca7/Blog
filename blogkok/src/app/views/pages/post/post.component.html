@@ -1,7 +1,16 @@
-<div class="container">
-    <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
-    <h5 class="html-header">HTML Output</h5>
-    <div class="html">
-        {{ htmlContent }}
-    </div>
+<div class="container form-post">
+    <form [formGroup]="articleForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+            <input type="text" placeholder="Title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Description" formControlName="description">
+        </div>
+        <div class="form-group">
+            <angular-editor [(ngModel)]="htmlContent" [config]="config" formControlName="body"></angular-editor>
+        </div>
+        <div>
+            <button class="post" type="submit">Post</button>
+        </div>
+    </form>
 </div>

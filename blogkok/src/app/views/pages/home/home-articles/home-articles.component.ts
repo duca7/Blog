@@ -1,108 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+import { ArticleResponse } from 'src/app/model/article.model';
+import { PostArticleService } from 'src/app/services/post-article.service';
 
 @Component({
   selector: 'app-home-articles',
   templateUrl: './home-articles.component.html',
-  styleUrls: ['./home-articles.component.scss']
+  styleUrls: ['./home-articles.component.scss'],
 })
 export class HomeArticlesComponent implements OnInit {
+  constructor(private postArticleService: PostArticleService) {}
 
-  constructor() { }
-
+  articles!: ArticleResponse[];
   ngOnInit(): void {
+    this.postArticleService.getAll().subscribe((articles) => {
+      console.log(articles);
+      this.articles = articles;
+    });
   }
-
-  postList = [
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-    {
-      img: '../../../../../assets/images/posts/1.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-      tag: {
-        tag1: 'design',
-        tag2: 'travel',
-        tag3: 'technology'
-      },
-      content: 'When it comes to creating is a website for your business, an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...'
-    },
-
-  ];
 
   popular = [
     {
@@ -124,7 +39,6 @@ export class HomeArticlesComponent implements OnInit {
       img: '../../../../../assets/images/posts/popular.png',
       title: 'Best Wordpress Theme of 2018',
       date: '18-04-21',
-    }
+    },
   ];
-
 }
