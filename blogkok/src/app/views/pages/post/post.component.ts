@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PostArticleService } from 'src/app/services/post-article.service';
 @Component({
@@ -10,7 +12,9 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 export class PostComponent implements OnInit {
   constructor(
     private articleService: PostArticleService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public router: Router,
+    public snackBar: MatSnackBar
   ) {}
 
   articleForm!: FormGroup;
@@ -25,8 +29,16 @@ export class PostComponent implements OnInit {
 
   onFormSubmit() {
     console.log(this.articleForm.value);
-    this.articleService.createArticle(this.articleForm.value).subscribe(console.log);
+    this.articleService
+      .createArticle(this.articleForm.value)
+      .subscribe((data) => {
+        this.snackBar.open('Success!', 'OK', { duration: 3000 });
+        this.router.navigate(['']);
+      });
   }
+
+  title = '';
+  description = '';
 
   htmlContent = '';
 

@@ -5,12 +5,14 @@
                 <div class="col-lg-6 col-sm-6" *ngFor="let article of articles">
                     <div class="entry-post">
                         <div class="entry-content">
+                            <div class="top-article">
+                                <img [src]="article.author.image" alt="avt-article" class="avt-article">
+                                <p>{{article.author.username}}</p>
+                            </div>
                             <h4 class="title">
-                                <a href="blog-details.html">
-                                    {{article.title}}
-                                </a>
+                                {{article.title}}
                             </h4>
-                            <p>
+                            <p class="description">
                                 {{article.description}}
                             </p>
                             <p [innerHTML]="article.body">
@@ -19,6 +21,8 @@
                             <a href="blog-details.html" class="read-more">
                                 Read More <i class="fas fa-long-arrow-right"></i>
                             </a>
+                            <hr>
+                            <p>{{article.createdAt | date:'mediumDate'}}</p>
                         </div>
                     </div>
                 </div>
@@ -29,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="primary-sidebar clearfix">
+            <div class="clearfix primary-sidebar">
                 <div class="sidebar-masonary row justify-content-center">
                     <div class="col-lg-12 col-md-6 col-sm-8 widget author-widget">
                         <div class="author-img">

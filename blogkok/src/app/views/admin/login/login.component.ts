@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +43,11 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           this.router.navigate(['/']);
+          this.snackBar.open('Success!', 'OK', { duration: 2000 });
         },
-        (error) => {}
+        (error) => {
+          this.snackBar.open(error, 'OK', { duration: 2000 });
+        }
       );
   }
 }

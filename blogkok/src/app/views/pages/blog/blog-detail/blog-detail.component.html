@@ -1,8 +1,8 @@
 <section class="post-details-area">
     <div class="container container-1000">
-        <div class="post-details">
+        <div class="post-details" *ngIf="currentArticle">
             <div class="entry-header">
-                <h2 class="title">Dating While Studying Abroad—Maximize Fun, Minimize Heartbreak</h2>
+                <h2 class="title">{{currentArticle.title}}</h2>
                 <ul class="post-meta">
                     <li>September 07 - 2020</li>
                     <li><a href="#">Design,</a><a href="#">Travel,</a><a href="#">photography</a></li>
@@ -12,7 +12,7 @@
                     increasingly using their tablets and smartphones shop online,...
                 </p>
             </div>
-            <div class="entry-media text-center">
+            <div class="text-center entry-media">
                 <img src="../../../../../assets/images/posts/2.jpg" alt="image">
             </div>
             <div class="entry-content">

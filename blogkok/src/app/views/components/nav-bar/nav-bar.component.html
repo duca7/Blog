@@ -26,6 +26,7 @@
                         class="avt">
                 </button>
                 <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="router.navigate(['/profile'])">Profile</button>
                     <button mat-menu-item (click)="signout()" class="signout">Sign Out</button>
                 </mat-menu>
             </div>

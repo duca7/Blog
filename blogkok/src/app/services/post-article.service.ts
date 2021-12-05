@@ -25,4 +25,8 @@ export class PostArticleService {
       .get<ArticleFake>(`${environment.apiUrl}/articles`)
       .pipe(pluck('articles'));
   }
+
+  getDetail(slug: string): Observable<any> {
+    return this.http.get<ArticleFake>(`${environment.apiUrl}/articles/slug`);
+  }
 }
