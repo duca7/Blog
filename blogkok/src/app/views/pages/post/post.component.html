@@ -2,13 +2,13 @@
     <h1>Write Your Article</h1>
     <form [formGroup]="articleForm" (ngSubmit)="onFormSubmit()">
         <div class="form-group">
-            <input type="text" placeholder="Title" formControlName="title" [(ngModel)]="title">
+            <input type="text" placeholder="Title" formControlName="title">
         </div>
         <div class="form-group">
-            <input type="text" placeholder="Description" formControlName="description" [(ngModel)]="description">
+            <input type="text" placeholder="Description" formControlName="description">
         </div>
         <div class="form-group">
-            <angular-editor [(ngModel)]="htmlContent" [config]="config" formControlName="body"></angular-editor>
+            <angular-editor [config]="config" formControlName="body"></angular-editor>
         </div>
         <div>
             <button class="post" type="submit">Post</button>
@@ -21,5 +21,5 @@
     <h3>Preview</h3>
     <p>{{title}}</p>
     <p>{{description}}</p>
-    <p [innerHTML]="htmlContent"></p>
+    <p [innerHTML]="body"></p>
 </div>

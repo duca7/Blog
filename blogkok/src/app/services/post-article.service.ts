@@ -14,6 +14,12 @@ interface ArticleFake {
   providedIn: 'root',
 })
 export class PostArticleService {
+  article = {
+    body: '',
+    title: '',
+    description: '',
+  };
+
   constructor(private http: HttpClient) {}
 
   createArticle(article: ArticleRequest) {
@@ -27,6 +33,22 @@ export class PostArticleService {
   }
 
   getDetail(slug: string): Observable<any> {
-    return this.http.get<ArticleFake>(`${environment.apiUrl}/articles/slug`);
+    return this.http.get<ArticleFake>(`${environment.apiUrl}/articles/${slug}`);
+  }
+
+  setArticle(article: any) {
+    this.article = article;
+  }
+
+  resetArticle() {
+    this.article = {
+      body: '',
+      title: '',
+      description: '',
+    };
+  }
+
+  updateArticle(article: ArticleRequest, slug = '') {
+    return this.http.put(`${environment.apiUrl}/articles/${slug}`, { article });
   }
 }

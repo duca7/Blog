@@ -42,6 +42,7 @@ const routes: Routes = [
       ),
   },
   { path: 'profile', loadChildren: () => import('./views/pages/profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'mypost', loadChildren: () => import('./views/pages/mypost/mypost.module').then(m => m.MypostModule) },
 
   {
     path: '**',

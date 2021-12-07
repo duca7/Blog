@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { PostArticleService } from 'src/app/services/post-article.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent {
   user!: User | null;
-  constructor(public router: Router, private authService: AuthService) {
+  constructor(
+    public router: Router,
+    private authService: AuthService,
+    private articleService: PostArticleService
+  ) {
     authService.getUser().subscribe((user) => {
       console.log(user);
 
@@ -19,5 +24,10 @@ export class NavBarComponent {
   }
   signout() {
     this.authService.logout();
+  }
+
+  goToPost() {
+    this.articleService.resetArticle();
+    this.router.navigate(['/post']);
   }
 }

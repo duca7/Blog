@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { ArticleResponse } from 'src/app/model/article.model';
 import { PostArticleService } from 'src/app/services/post-article.service';
@@ -9,13 +10,23 @@ import { PostArticleService } from 'src/app/services/post-article.service';
   styleUrls: ['./home-articles.component.scss'],
 })
 export class HomeArticlesComponent implements OnInit {
-  constructor(private postArticleService: PostArticleService) {}
+  constructor(
+    private postArticleService: PostArticleService,
+    private router: Router
+  ) {}
 
   articles!: ArticleResponse[];
   ngOnInit(): void {
     this.postArticleService.getAll().subscribe((articles) => {
       console.log(articles);
       this.articles = articles;
+    });
+  }
+
+  goToUpdate(slug: string) {
+    this.postArticleService.getDetail(slug).subscribe((res) => {
+      this.postArticleService.setArticle(res.article);
+      this.router.navigate(['/post/' + slug]);
     });
   }
 

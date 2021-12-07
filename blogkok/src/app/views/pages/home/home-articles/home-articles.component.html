@@ -18,9 +18,12 @@
                             <p [innerHTML]="article.body">
 
                             </p>
-                            <a href="blog-details.html" class="read-more">
+                            <a [routerLink]="'blog/' + article.slug" class="read-more">
                                 Read More <i class="fas fa-long-arrow-right"></i>
                             </a>
+                            <span (click)="goToUpdate(article.slug)" class="read-more">
+                                update <i class="fas fa-long-arrow-right"></i>
+                            </span>
                             <hr>
                             <p>{{article.createdAt | date:'mediumDate'}}</p>
                         </div>
