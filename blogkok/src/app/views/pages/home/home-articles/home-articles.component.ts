@@ -11,22 +11,32 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 })
 export class HomeArticlesComponent implements OnInit {
   constructor(
-    private postArticleService: PostArticleService,
+    private articleService: PostArticleService,
     private router: Router
   ) {}
 
   articles!: ArticleResponse[];
   ngOnInit(): void {
-    this.postArticleService.getAll().subscribe((articles) => {
+    this.getAll();
+  }
+
+  getAll() {
+    this.articleService.getAll().subscribe((articles) => {
       console.log(articles);
       this.articles = articles;
     });
   }
 
   goToUpdate(slug: string) {
-    this.postArticleService.getDetail(slug).subscribe((res) => {
-      this.postArticleService.setArticle(res.article);
+    this.articleService.getDetail(slug).subscribe((res) => {
+      this.articleService.setArticle(res.article);
       this.router.navigate(['/post/' + slug]);
+    });
+  }
+
+  deletePost(slug: string) {
+    this.articleService.deleteArticle(slug).subscribe(() => {
+      this.getAll();
     });
   }
 

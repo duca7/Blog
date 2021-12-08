@@ -18,6 +18,7 @@ interface Author {
   image: string;
   _id?: string;
   username: string;
+  following?: string;
 }
 
 interface WithDate {
@@ -27,4 +28,4 @@ interface WithDate {
 
 type ArticleResponse = Article & WithDate & ArticleRequest;
 
-export { ArticleResponse, ArticleRequest };
+export { ArticleResponse, ArticleRequest, Author };

@@ -7,9 +7,15 @@ import { BaseModule } from '../../base.module';
 import { HomeBannerComponent } from './home-banner/home-banner.component';
 import { HomeArticlesComponent } from './home-articles/home-articles.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [HomeComponent, HomeBannerComponent, HomeArticlesComponent],
-  imports: [CommonModule,HomeRoutingModule,HttpClientModule, BaseModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    HttpClientModule,
+    MatIconModule,
+    BaseModule,
+  ],
 })
 export class HomeModule {}

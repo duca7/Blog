@@ -10,12 +10,14 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 export class BlogDetailComponent implements OnInit {
   currentArticle: any;
 
+  slug!: string | null;
   constructor(
     private articleService: PostArticleService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.slug = this.route.snapshot.paramMap.get('slug');
     this.getDetail(this.route.snapshot.paramMap.get('slug'));
   }
 

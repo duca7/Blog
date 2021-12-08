@@ -1,52 +1,39 @@
 <div class="comment-template">
-    <h4 class="template-title">04 Comments</h4>
+    <h4 class="template-title">{{commentList.length}} Comments</h4>
 
     <ul class="comment-list">
-        <li>
+        <li *ngFor="let comment of commentList">
             <div class="comment-body">
                 <div class="comment-author">
-
+                    <img [src]="comment.author.image" alt="">
                 </div>
                 <div class="comment-content">
-                    <h6 class="comment-author">Zhon Andarson</h6>
+                    <h6 class="comment-author">{{comment.author.username}}</h6>
                     <p>
-                        Coding is used in almost all aspects of life and work now, be it directly or indirectly. It’s not just for companies in the tech sector. “An increasing number of businesses rely on computer code,
+                        {{comment.body}}
+                        <button (click)="deleteComment(comment._id)">delete</button>
                     </p>
                     <div class="comment-footer">
-                        <span class="date"> 10:35pm, 27 jan 2015.</span>
+                        <span class="date"> {{comment.createdAt | date:'mediumDate' }}</span>
                     </div>
                 </div>
             </div>
         </li>
-        <li>
-            <div class="comment-body">
-                <div class="comment-author">
 
-                </div>
-                <div class="comment-content">
-                    <h6 class="comment-author">Andro Smith Doe</h6>
-                    <p>
-                        Coding is used in almost all aspects of life and work now, be it directly or indirectly. It’s not just for companies in the tech sector. “An increasing number of businesses rely on computer code,
-                    </p>
-                    <div class="comment-footer">
-                        <span class="date"> 10:35pm, 27 jan 2015.</span>
-                    </div>
-                </div>
-            </div>
-        </li>
     </ul>
 
     <h4 class="template-title">Leave your comment</h4>
     <div class="comment-form">
-        <form action="#">
+        <div>
             <div class="row">
                 <div class="col-12">
-                    <textarea placeholder="Your message here"></textarea>
+                    <textarea [(ngModel)]="comment" placeholder="Your message here">
+                        </textarea>
                 </div>
                 <div class="col-12">
-                    <button type="submit">Post <i class="far fa-arrow-right"></i></button>
+                    <button (click)="createComment()">Post <i class="far fa-arrow-right"></i></button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
