@@ -15,18 +15,10 @@
                             <p class="description">
                                 {{article.description}}
                             </p>
-                            <p [innerHTML]="article.body">
-
-                            </p>
                             <a [routerLink]="'blog/' + article.slug" class="read-more">
                                 Read More <i class="fas fa-long-arrow-right"></i>
                             </a>
-                            <button (click)="goToUpdate(article.slug)" class="read-more">
-                                <mat-icon aria-hidden="false">edit</mat-icon>
-                            </button>
-                            <button (click)="deletePost(article.slug)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
+
                             <hr>
                             <p>{{article.createdAt | date:'mediumDate'}}</p>
                         </div>

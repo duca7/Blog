@@ -10,10 +10,7 @@ import { PostArticleService } from 'src/app/services/post-article.service';
   styleUrls: ['./home-articles.component.scss'],
 })
 export class HomeArticlesComponent implements OnInit {
-  constructor(
-    private articleService: PostArticleService,
-    private router: Router
-  ) {}
+  constructor(private articleService: PostArticleService) {}
 
   articles!: ArticleResponse[];
   ngOnInit(): void {
@@ -24,19 +21,6 @@ export class HomeArticlesComponent implements OnInit {
     this.articleService.getAll().subscribe((articles) => {
       console.log(articles);
       this.articles = articles;
-    });
-  }
-
-  goToUpdate(slug: string) {
-    this.articleService.getDetail(slug).subscribe((res) => {
-      this.articleService.setArticle(res.article);
-      this.router.navigate(['/post/' + slug]);
-    });
-  }
-
-  deletePost(slug: string) {
-    this.articleService.deleteArticle(slug).subscribe(() => {
-      this.getAll();
     });
   }
 
