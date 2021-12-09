@@ -1,42 +1,25 @@
 <section class="post-details-area">
     <div class="container container-1000">
-        <div class="post-details">
+        <div class="post-details" *ngIf="currentArticle">
             <div class="entry-header">
-                <h2 class="title">Dating While Studying Abroad—Maximize Fun, Minimize Heartbreak</h2>
+                <h2 class="title">{{currentArticle.article.title}}</h2>
                 <ul class="post-meta">
-                    <li>September 07 - 2020</li>
+                    <li>{{currentArticle.article.createdAt | date:'mediumDate'}}</li>
                     <li><a href="#">Design,</a><a href="#">Travel,</a><a href="#">photography</a></li>
                 </ul>
                 <p class="short-desc">
-                    When it comes to creating is a website for your busi-ness, an attreactive design will only get you far. With people increasingly using their tablets and smartphones and website for your business, an attractive design will only get you far. With people
-                    increasingly using their tablets and smartphones shop online,...
+                    {{currentArticle.article.description}}
                 </p>
             </div>
-            <div class="entry-media text-center">
-                <img src="../../../../../assets/images/posts/2.jpg" alt="image">
-            </div>
+
             <div class="entry-content">
-                <p class="has-dropcap">
-                    Adipiscing elit com-modo ligula eget dolor Morlem ipsuim dolor sit amiet nec, isc thua sdfk onsec tetuer adipi scing elit. Aenean commeod ligula eget dolor Cuem sociis thena toquhte thigp enatibus et magnis dis partu rient montes. Morlem ipsum doelor
-                    sit amet nec penatib et thjem agnis dis part urient montes. Morlem ipsum dolor sit amet nerc, conseec tetuer adipiscing elit. Aenean commodo ligulaits eget dolior. Aenean type massa. Cum sociis nato que pena tibus et magnis dis partu
-                    rient moentes. Morlm ipsum dolor tibushrde set amet nec, consec tetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                <p class="has-dropcap" [innerHTML]="currentArticle.article.body">
+
                 </p>
-                <p>
-                    Enatibus et magnis dis partu rient montes. Morlem ipsum doelor sit amet nec penatib et thjem agnis dis part uriet montes. Morlem ipsium dolor sit amet nerc, conseec tetuer adipi scing elit. Aenean commodo ligulaits eget doilior. Aenean type massa. Cum
-                    sociis nato que pena tibus et magns dihtres partu rient moentes. Morlm ipsum dolor set amet nec, consec tetuer adipiscing elit. Aenean comiodo ligula eget dolor. magnis dis partu rient moentes. Morlm ipsum dolor set am nec, consec
-                    tetuer adipiscing elit
-                </p>
+
             </div>
             <div class="entry-footer border-top">
-                <div class="post-tags">
-                    <span>Tag:</span>
-                    <a href="#">burger,</a>
-                    <a href="#">pixxa,</a>
-                    <a href="#">drink,</a>
-                    <a href="#">hot,</a>
-                    <a href="#">spacial,</a>
-                </div>
-                <div class="post-author border-top">
+                <div class="post-author">
                     <div class="author-img">
                         <img src="assets/images/posts/author.png" alt="PostAuthor">
                     </div>
@@ -44,7 +27,7 @@
                     <p>Article Writer, Senior Designer, Wordpress Developer Father of 2 Daughters</p>
                 </div>
             </div>
-            <div class="related-posts border-top">
+            <!-- <div class="related-posts border-top">
                 <h4 class="related-title">Related Posts</h4>
                 <div class="related-loop row justify-content-center">
                     <div class="col-lg-6 col-md-6 col-sm-10">
@@ -72,9 +55,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <app-blog-comment></app-blog-comment>
+        <app-blog-comment [slug]="slug"> </app-blog-comment>
 
     </div>
 </section>

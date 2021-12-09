@@ -8,27 +8,26 @@
                             <h3>Login</h3>
                             <p>I'm an existing customer and would like to login.</p>
                         </div>
-                        <form class="login-form">
-                            <p>
+                        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+                            <div class="form-group">
                                 <label for="username">Email<span class="required">*</span></label>
-                                <input type="text" id="username" placeholder="Enter your email">
-                            </p>
-                            <p>
+                                <input type="text" id="username" placeholder="Enter your email" formControlName="email">
+
+                            </div>
+                            <div class="form-group">
                                 <label for="password">Password<span class="required">*</span></label>
-                                <input type="password" id="password" placeholder="********">
-                            </p>
-                            <p class="text-center">
-                                <button type="submit" class="form-btn" onclick="onLogin()">Login</button>
-                            </p>
+                                <input type="password" id="password" placeholder="********" formControlName="password">
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="form-btn" [disabled]="!loginForm.valid">Login</button>
+                            </div>
                         </form>
-                        <div>
+                        <div class="form-group">
                             Don't have an account.
                             <a [routerLink]="['/register']" style="font-weight: 600">Register</a>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

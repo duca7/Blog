@@ -45,7 +45,10 @@
         }
     }
     .entry-post {
-        margin-bottom: 90px;
+        padding: 1rem 1rem;
+        border: 1px solid #d2d2cc;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         @include respond-below(lg) {
             margin-bottom: 50px;
         }
@@ -59,54 +62,26 @@
             padding-right: 30px;
         }
         .title {
+            margin-top: 10px;
             font-size: 25px;
             line-height: 1.5;
-            margin-bottom: 30px;
             font-weight: 800;
             @media (max-width: 1600px) {
                 font-size: 20px;
             }
         }
-        .post-meta {
-            font-size: 13px;
-            margin-bottom: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0;
-            a {
-                color: $text-color;
-                &:hover {
-                    color: $black;
-                }
-            }
-            li {
-                &:not(:last-child) {
-                    margin-right: 20px;
-                    padding-right: 20px;
-                    position: relative;
-                    @include respond-below(sm) {
-                        padding-right: 10px;
-                        margin-right: 10px;
-                    }
-                    &::after {
-                        content: "/";
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        transform: translateY(-50%);
-                    }
-                }
-            }
-        }
-        p {
-            margin-bottom: 0;
+        .description {
+            white-space: nowrap;
+            width: 350px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .read-more {
             font-size: 14px;
             font-family: $rob_s;
             font-weight: 700;
             line-height: 1;
-            margin-top: 30px;
+            margin-top: 15px;
             i {
                 margin-left: 10px;
                 position: relative;
@@ -135,4 +110,19 @@
 
 .popular-img {
     padding-top: 10px;
+}
+
+.avt-article {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.top-article {
+    display: flex;
+    align-items: center;
+    p {
+        font-weight: 600;
+        margin-left: 10px;
+    }
 }
