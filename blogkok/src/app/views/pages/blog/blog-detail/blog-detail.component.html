@@ -19,12 +19,13 @@
 
             </div>
             <div class="entry-footer border-top">
-                <div class="post-author">
+                <div class="post-author" *ngIf="currentArticle">
                     <div class="author-img">
-                        <img src="assets/images/posts/author.png" alt="PostAuthor">
+                        <img [src]="currentArticle.article.author.image" alt="PostAuthor">
                     </div>
-                    <h5><a href="#">Maisha Smith</a></h5>
-                    <p>Article Writer, Senior Designer, Wordpress Developer Father of 2 Daughters</p>
+                    <h5>{{currentArticle.article.author.username}}</h5>
+                    <p>When it comes to creating is a website for your business, an attractive design will only get you far,...
+                    </p>
                 </div>
             </div>
             <!-- <div class="related-posts border-top">

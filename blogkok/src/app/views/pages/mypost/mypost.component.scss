@@ -1,3 +1,7 @@
+.title {
+    padding-left: 3rem;
+}
+
 .card-container {
     width: 100%;
     overflow-x: scroll;
@@ -33,6 +37,11 @@
     border: 3px solid #28242f;
     border-radius: 2rem;
     cursor: pointer;
+}
+
+.tags div:hover {
+    background-color: grey;
+    color: #ffffff;
 }
 
 .card .category-title {
