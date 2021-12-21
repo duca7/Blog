@@ -62,4 +62,21 @@ export class PostArticleService {
   deleteArticle(slug: string): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/articles/${slug}`);
   }
+
+  getFavorite(id: string) {
+    return this.http.get<any>(`${environment.apiUrl}/articles/${id}/favorite`);
+  }
+
+  addFavorite(slug: string) {
+    return this.http.post<any>(
+      `${environment.apiUrl}/articles/${slug}/favorite`,
+      null
+    );
+  }
+
+  removeFavorite(slug: string) {
+    return this.http.delete<any>(
+      `${environment.apiUrl}/articles/${slug}/favorite`
+    );
+  }
 }

@@ -2,63 +2,29 @@
     <div class="container container-1000">
         <div class="post-details" *ngIf="currentArticle">
             <div class="entry-header">
-                <h2 class="title">{{currentArticle.article.title}}</h2>
-                <ul class="post-meta">
-                    <li>{{currentArticle.article.createdAt | date:'mediumDate'}}</li>
-                    <li><a href="#">Design,</a><a href="#">Travel,</a><a href="#">photography</a></li>
-                </ul>
+                <h2 class="title">{{currentArticle.title}} </h2>
+                <!-- <mat-icon *ngIf="isFavored">favorite</mat-icon>
+                <mat-icon *ngIf="!isFavored">favorite_border</mat-icon> -->
                 <p class="short-desc">
-                    {{currentArticle.article.description}}
+                    {{currentArticle.description}}
                 </p>
             </div>
 
             <div class="entry-content">
-                <p class="has-dropcap" [innerHTML]="currentArticle.article.body">
-
+                <p class="has-dropcap" [innerHTML]="currentArticle.body">
                 </p>
+            </div>
 
-            </div>
-            <div class="entry-footer border-top">
-                <div class="post-author" *ngIf="currentArticle">
-                    <div class="author-img">
-                        <img [src]="currentArticle.article.author.image" alt="PostAuthor">
-                    </div>
-                    <h5>{{currentArticle.article.author.username}}</h5>
-                    <p>When it comes to creating is a website for your business, an attractive design will only get you far,...
-                    </p>
+            <div class="author border-top">
+                <div class="profile" *ngIf="currentArticle">
+                    <img [src]="currentArticle.author.image" alt="avt-article" class="avt-article">
+                </div>
+                <div class="info">
+                    <div class="name">{{currentArticle.author.username}}</div>
+                    <div class="date">Published on {{currentArticle.createdAt | date:'mediumDate'}} </div>
                 </div>
             </div>
-            <!-- <div class="related-posts border-top">
-                <h4 class="related-title">Related Posts</h4>
-                <div class="related-loop row justify-content-center">
-                    <div class="col-lg-6 col-md-6 col-sm-10">
-                        <div class="related-post-box">
-                            <div class="thumb">
-                                <img src="assets/images/posts/1.png" alt="image">
-                            </div>
-                            <h5 class="title">
-                                <a href="#">
-                                    The Olivier da Costa restaurant experience in Lisbon
-                                </a>
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-10">
-                        <div class="related-post-box">
-                            <div class="thumb">
-                                <img src="assets/images/posts/1.png" alt="image">
-                            </div>
-                            <h5 class="title">
-                                <a href="#">
-                                    The Olivier da Costa restaurant experience in Lisbon
-                                </a>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <app-blog-comment [slug]="slug"> </app-blog-comment>
-
     </div>
 </section>

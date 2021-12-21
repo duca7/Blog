@@ -368,3 +368,26 @@
         }
     }
 }
+
+.author {
+    margin-top: 3rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+}
+
+.author .info .caption {
+    color: #8a8a8a;
+}
+
+.info {
+    padding-left: 1.5rem;
+    .name {
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
+.avt-article {
+    border-radius: 50%;
+}

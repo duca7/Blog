@@ -21,27 +21,4 @@ export class HomeComponent implements OnInit {
       this.articles = articles;
     });
   }
-
-  popular = [
-    {
-      img: '../../../../../assets/images/posts/popular.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-    },
-    {
-      img: '../../../../../assets/images/posts/popular.png',
-      title: 'Dating While Studying Abroad—Maximize',
-      date: '18-04-21',
-    },
-    {
-      img: '../../../../../assets/images/posts/popular.png',
-      title: 'Nature Photography Best Place Focus',
-      date: '18-04-21',
-    },
-    {
-      img: '../../../../../assets/images/posts/popular.png',
-      title: 'Best Wordpress Theme of 2018',
-      date: '18-04-21',
-    },
-  ];
 }

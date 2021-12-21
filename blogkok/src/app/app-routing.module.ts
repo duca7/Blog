@@ -32,17 +32,27 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./views/admin/login/login.module').then((m) => m.LoginModule),
+      import('./views/pages/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'register',
     loadChildren: () =>
-      import('./views/admin/register/register.module').then(
+      import('./views/pages/register/register.module').then(
         (m) => m.RegisterModule
       ),
   },
-  { path: 'profile', loadChildren: () => import('./views/pages/profile/profile.module').then(m => m.ProfileModule) },
-  { path: 'mypost', loadChildren: () => import('./views/pages/mypost/mypost.module').then(m => m.MypostModule) },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./views/pages/profile/profile.module').then(
+        (m) => m.ProfileModule
+      ),
+  },
+  {
+    path: 'mypost',
+    loadChildren: () =>
+      import('./views/pages/mypost/mypost.module').then((m) => m.MypostModule),
+  },
 
   {
     path: '**',
