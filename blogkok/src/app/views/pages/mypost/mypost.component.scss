@@ -1,3 +1,7 @@
+.title {
+    padding-left: 3rem;
+}
+
 .card-container {
     width: 100%;
     overflow-x: scroll;
@@ -35,6 +39,11 @@
     cursor: pointer;
 }
 
+.tags div:hover {
+    background-color: grey;
+    color: #ffffff;
+}
+
 .card .category-title {
     font-size: 14px;
     font-weight: 600;
@@ -46,8 +55,6 @@
     font-size: 20px;
     font-weight: 700;
 }
-
-.aritcle-description {}
 
 .card .article-header {
     margin-bottom: auto;

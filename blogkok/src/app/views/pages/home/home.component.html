@@ -1,2 +1,77 @@
-<app-home-banner></app-home-banner>
-<app-home-articles></app-home-articles>
+<section class="banner-section">
+    <div class="banner-slider">
+        <div class="sinlge-banner">
+            <div class="banner-wrapper ">
+                <div class="banner-bg" style="background-image: url(../../../../../assets/images/01.jpg);"></div>
+                <div class="banner-content">
+                    <h3 class="title">
+                        <a [routerLink]="['/blog']">
+                            The Olivier da Costa restaurant experience in Lisbon
+                        </a>
+                    </h3>
+                    <ul class="meta">
+                        <li><a href="#">By - Zhon Smith</a></li>
+                        <li><a href="#">Travel,</a><a href="#">Design,</a><a href="#">Nature</a></li>
+                    </ul>
+                    <p>
+                        When it comes to creating is a website for your busin an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...
+                    </p>
+                    <a href="blog-details.html" class="read-more">
+                        Read More <i class="fas fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-nav"></div>
+</section>
+<section class="image-boxes-area border-top">
+    <div class="container mt-5">
+        <div class="image-boxes">
+            <div class="image-box" style="background-image: url(../../../../assets/images/home/aboutme.png);">
+                <a href="about.html">About Us</a>
+            </div>
+            <div class="image-box" style="background-image: url(../../../../assets/images/home/facebook.png);">
+                <a href="photo-stories.html">Follow @ Facebook</a>
+            </div>
+            <div class="image-box" style="background-image: url(../../../../assets/images/home/instagram.png);">
+                <a href="#">Follow @ Instagram</a>
+            </div>
+            <div class="image-box" style="background-image: url(../../../../assets/images/home/youtube.png);">
+                <a href="#">Follow @ Youtube</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="post-area no-sidebar">
+    <div class="container">
+        <div class="post-area-inner">
+            <!-- Entry Post -->
+            <div class="entry-posts two-column masonary-posts row">
+                <div class="col-xl-4 col-lg-4 col-sm-6" *ngFor="let article of articles">
+                    <div class="entry-post">
+                        <div class="top-article">
+                            <img [src]="article.author.image" alt="avt-article" class="avt-article">
+                            <p>{{article.author.username}}</p>
+                        </div>
+                        <div class="entry-content">
+                            <h4 class="title">
+                                {{article.title}}
+                            </h4>
+                            <p class="description">
+                                {{article.description}}
+                            </p>
+                            <a [routerLink]="'blog/' + article.slug" class="read-more">
+                                Read More
+                            </a>
+                            <hr>
+                            <p>{{article.createdAt | date:'mediumDate'}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

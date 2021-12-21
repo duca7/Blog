@@ -13,7 +13,6 @@ export class BlogCommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllComment();
-    console.log(this.slug);
   }
 
   comment: string = '';

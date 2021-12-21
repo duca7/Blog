@@ -68,11 +68,6 @@ export class PostComponent implements OnInit {
     }
   }
 
-  // title = '';
-  // description = '';
-
-  // htmlContent = '';
-
   get title() {
     return this.articleForm.get('title')?.value;
   }

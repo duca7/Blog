@@ -308,11 +308,30 @@ header {
 }
 
 .post {
-    padding: 0.8rem 2.5rem;
+    padding: 0.8rem 2rem;
     background-color: #000000;
     color: #ffffff;
 }
 
 .my-post {
     margin-right: 1rem;
+}
+
+.right-bar {
+    display: flex;
+}
+
+.search {
+    margin-right: 2rem;
+    .search-form {
+        display: flex;
+    }
+    .in-search {
+        height: 50px;
+    }
+    .btn-search {
+        padding: 0.8rem 2rem;
+        background-color: #000000;
+        color: #ffffff;
+    }
 }

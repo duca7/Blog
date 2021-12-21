@@ -9,24 +9,22 @@ import { AuthService } from './auth.service';
 })
 export class CommentService {
   model = 'articles';
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
   createComment(slug: string, comment: Comment) {
     return this.http.post<Comment>(
-      `http://localhost:3000/api/v1/articles/${slug}/comments`,
+      `${environment.apiUrl}/articles/${slug}/comments`,
       { comment }
     );
   }
 
   getAllComment(slug: string) {
-    return this.http.get(
-      `http://localhost:3000/api/v1/articles/${slug}/comments`
-    );
+    return this.http.get(`${environment.apiUrl}/articles/${slug}/comments`);
   }
 
   deleteComment(slug: string, commentId: string) {
     return this.http.delete(
-      `http://localhost:3000/api/v1/articles/${slug}/comments/${commentId}`
+      `${environment.apiUrl}/articles/${slug}/comments/${commentId}`
     );
   }
 }
