@@ -20,11 +20,11 @@
         </header>
         <div class="author">
             <div class="profile">
-                <img [src]="article.author.image" alt="avt-article" class="avt-article">
+                <img [src]="article.author.image" alt="avt-article" class="avt-article" (click)="router.navigate(['/profile'])">
             </div>
             <div class="info">
                 <div class="caption">Author</div>
-                <div class="name">{{article.author.username}}</div>
+                <div class="name" (click)="router.navigate(['/profile'])">{{article.author.username}} </div>
             </div>
         </div>
         <div class="tags">

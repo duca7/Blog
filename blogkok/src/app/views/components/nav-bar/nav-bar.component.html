@@ -34,14 +34,15 @@
                 </div>
                 <div>
                     <button class="post my-post" (click)="router.navigate(['/mypost'])">My Post</button>
-
+                </div>
+                <div>
+                    <button class="post my-post" (click)="router.navigate(['/likedarticles'])">Liked Articles</button>
                 </div>
                 <div>
                     <button class="post" (click)="goToPost()">New Post</button>
-
                 </div>
                 <div>
-                    <button mat-button class="center" [matMenuTriggerFor]="menu">
+                    <button class="avt-login" [matMenuTriggerFor]="menu">
                         <img [src]="user.image"
                             alt=""
                             class="avt">
@@ -51,9 +52,7 @@
                         <button mat-menu-item (click)="signout()" class="signout">Sign Out</button>
                     </mat-menu>
                 </div>
-
             </div>
-
         </div>
     </div>
 </header>

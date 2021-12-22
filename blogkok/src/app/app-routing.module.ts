@@ -53,6 +53,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/pages/mypost/mypost.module').then((m) => m.MypostModule),
   },
+  { path: 'likedarticles', loadChildren: () => import('./views/pages/likedarticles/likedarticles.module').then(m => m.LikedarticlesModule) },
 
   {
     path: '**',

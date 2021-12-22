@@ -3,8 +3,7 @@
         <div class="post-details" *ngIf="currentArticle">
             <div class="entry-header">
                 <h2 class="title">{{currentArticle.title}} </h2>
-                <!-- <mat-icon *ngIf="isFavored">favorite</mat-icon>
-                <mat-icon *ngIf="!isFavored">favorite_border</mat-icon> -->
+
                 <p class="short-desc">
                     {{currentArticle.description}}
                 </p>
@@ -17,10 +16,19 @@
 
             <div class="author border-top">
                 <div class="profile" *ngIf="currentArticle">
-                    <img [src]="currentArticle.author.image" alt="avt-article" class="avt-article">
+                    <img [src]="currentArticle.author.image" alt="avt-article" class="avt-article" (click)="router.navigate(['/profile'])">
                 </div>
                 <div class="info">
-                    <div class="name">{{currentArticle.author.username}}</div>
+                    <div class="info-top">
+                        <div class="name" (click)="router.navigate(['/profile'])">
+                            {{currentArticle.author.username}}
+                        </div>
+                        <div>
+                            <mat-icon *ngIf="isFavored">favorite</mat-icon>
+                            <mat-icon *ngIf="!isFavored">favorite_border</mat-icon>
+                        </div>
+                    </div>
+
                     <div class="date">Published on {{currentArticle.createdAt | date:'mediumDate'}} </div>
                 </div>
             </div>

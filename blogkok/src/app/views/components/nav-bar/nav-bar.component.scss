@@ -308,13 +308,16 @@ header {
 }
 
 .post {
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     background-color: #000000;
     color: #ffffff;
+    border: 1px solid #000;
+    margin-right: 1rem;
 }
 
-.my-post {
-    margin-right: 1rem;
+.post:hover {
+    background-color: #fff;
+    color: #000;
 }
 
 .right-bar {
@@ -322,7 +325,7 @@ header {
 }
 
 .search {
-    margin-right: 2rem;
+    margin-right: 1rem;
     .search-form {
         display: flex;
     }
