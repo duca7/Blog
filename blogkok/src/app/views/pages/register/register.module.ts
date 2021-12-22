@@ -6,6 +6,7 @@ import { RegisterComponent } from './register.component';
 import { BaseModule } from '../../base.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [RegisterComponent],
   imports: [
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterRoutingModule,
     BaseModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
 })
 export class RegisterModule {}

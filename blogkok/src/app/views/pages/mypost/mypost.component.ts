@@ -11,7 +11,7 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 export class MypostComponent implements OnInit {
   constructor(
     private articleService: PostArticleService,
-    private router: Router
+    public router: Router
   ) {}
   articles!: ArticleResponse[];
 

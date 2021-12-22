@@ -295,7 +295,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-top: 25px;
                 .date {
                     color: #989898;
                     font-size: 14px;
@@ -385,9 +384,20 @@
     .name {
         font-size: 22px;
         font-weight: 700;
+        cursor: pointer;
     }
 }
 
 .avt-article {
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.info-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-icon {
+    color: red;
 }

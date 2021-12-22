@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostArticleService } from 'src/app/services/post-article.service';
 
@@ -15,7 +15,8 @@ export class BlogDetailComponent implements OnInit {
   constructor(
     private articleService: PostArticleService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {

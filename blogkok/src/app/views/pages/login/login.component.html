@@ -10,13 +10,26 @@
                         </div>
                         <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
                             <div class="form-group">
-                                <label for="username">Email<span class="required">*</span></label>
-                                <input type="text" id="username" placeholder="Enter your email" formControlName="email">
-
+                                <label for="email">Email<span class="required">*</span></label>
+                                <input type="text" id="email" class="form-control" placeholder="Enter your email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" autocomplete="off">
+                                <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                                    <div *ngIf="fval.email.errors.required">Email is required</div>
+                                    <div *ngIf="fval.email.errors.email">Email is invalid</div>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="password">Password<span class="required">*</span></label>
-                                <input type="password" id="password" placeholder="********" formControlName="password">
+                                <input type="password" id="password" placeholder="********" formControlName="password" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" autocomplete="off">
+                                <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                                    <div *ngIf="fval.password.errors.required">Password is required</div>
+                                    <div *ngIf="fval.password.errors.minlength">
+                                        Password must be at least 6 characters
+                                    </div>
+                                    <div *ngIf="fval.password.errors.maxlength">
+                                        Username must not exceed 40 characters
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="form-btn" [disabled]="!loginForm.valid">Login</button>
