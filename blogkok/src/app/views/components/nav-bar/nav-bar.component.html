@@ -8,8 +8,8 @@
             <div class="right-bar">
                 <div class="search">
                     <form class="search-form">
-                        <input type="text" placeholder="Search.." name="search" class="in-search">
-                        <button type="submit" class="btn-search">Search</button>
+                        <input [(ngModel)]="searchInput" type="text" placeholder="Search.." name="search" class="in-search">
+                        <button type="submit" class="btn-search" (click)="search()" >Search</button>
                     </form>
                 </div>
                 <button class="post" (click)="router.navigate(['/login'])">Login</button>

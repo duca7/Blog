@@ -21,6 +21,8 @@ export class PostArticleService {
     description: '',
   };
 
+  searchInput = '';
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   createArticle(article: ArticleRequest) {
@@ -29,7 +31,11 @@ export class PostArticleService {
 
   getAll() {
     return this.http
-      .get<ArticleFake>(`${environment.apiUrl}/articles`)
+      .get<ArticleFake>(`${environment.apiUrl}/articles`, {
+        params: {
+          "author": this.searchInput
+        }
+      })
       .pipe(pluck('articles'));
   }
 

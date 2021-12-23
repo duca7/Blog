@@ -8,7 +8,9 @@ import { PostArticleService } from 'src/app/services/post-article.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private articleService: PostArticleService) {}
+  constructor(private articleService: PostArticleService) {
+    this.getAll();
+  } 
 
   articles!: ArticleResponse[];
   ngOnInit(): void {
