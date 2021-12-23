@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommentInfo } from 'src/app/model/comment.model';
 import { CommentService } from 'src/app/services/comment.service';
 @Component({
@@ -7,7 +8,7 @@ import { CommentService } from 'src/app/services/comment.service';
   styleUrls: ['./blog-comment.component.scss'],
 })
 export class BlogCommentComponent implements OnInit {
-  constructor(private commentService: CommentService) {}
+  constructor(private commentService: CommentService, public router: Router) {}
 
   @Input() slug!: string | null;
 

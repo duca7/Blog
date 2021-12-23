@@ -1,14 +1,26 @@
 .btn-delete {
-    font-size: 9px;
-    font-weight: 700;
-    padding: 4px 10px;
-    background-color: #ffffff;
-    border: 3px solid #28242f;
-    border-radius: 2rem;
+    padding: 0.3rem 1.3rem;
+    background-color: #000000;
+    font-size: 14px;
+    color: #ffffff;
     cursor: pointer;
+    border: 1px solid #000;
 }
 
 .btn-delete:hover {
-    background-color: #000;
-    color: #ffffff;
+    background-color: #fff;
+    color: #000;
+}
+
+.comment-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-author {
+    cursor: pointer;
+}
+
+.avt-comment {
+    cursor: pointer;
 }

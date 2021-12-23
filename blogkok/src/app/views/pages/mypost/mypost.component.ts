@@ -11,9 +11,10 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 export class MypostComponent implements OnInit {
   constructor(
     private articleService: PostArticleService,
-    private router: Router
+    public router: Router
   ) {}
-  articles!: ArticleResponse[];
+  articles?: ArticleResponse[];
+  numberOfArticles = 0;
 
   ngOnInit(): void {
     this.getArticleUserName();
@@ -22,6 +23,7 @@ export class MypostComponent implements OnInit {
   getArticleUserName() {
     this.articleService.getArticleByUserName().subscribe((articles) => {
       this.articles = articles.articles;
+      this.numberOfArticles = articles.length;
     });
   }
 

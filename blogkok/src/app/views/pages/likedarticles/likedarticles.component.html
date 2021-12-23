@@ -1,36 +1,36 @@
 <div class="container">
     <h4 class="title">{{numberOfArticles}} Articles</h4>
-
 </div>
 <div class="card-container">
     <div class="card" *ngFor="let article of articles">
         <header class="article-header">
             <div>
                 <div class="category-title">
-                    CreatedAt:
                     <span class="date">{{article.createdAt | date:'mediumDate'}}</span>
                 </div>
             </div>
             <h2 class="article-title">
                 {{article.title}}
             </h2>
-            <p class="aritcle-description">{{article.description}} </p>
-            <a [routerLink]="'/blog/' + article.slug" class="read-more">
+            <p class="aritcle-description">{{article.description}}</p>
+            <a class="read-more" [routerLink]="'blog/' + article.slug">
                 Read More
             </a>
         </header>
         <div class="author">
             <div class="profile">
-                <img [src]="article.author.image" alt="avt-article" class="avt-article" (click)="router.navigate(['/profile'])">
+                <img src="{{article.author.image}}" alt="avt-article" class="avt-article" (click)="router.navigate(['/profile'])">
             </div>
             <div class="info">
-                <div class="caption">Author</div>
-                <div class="name" (click)="router.navigate(['/profile'])">{{article.author.username}} </div>
+                <div class="info-top">
+                    <div class="caption">Author</div>
+                    <div>
+                        <mat-icon>favorite</mat-icon>
+                        <!-- <mat-icon>favorite_border</mat-icon> -->
+                    </div>
+                </div>
+                <div class="name" (click)="router.navigate(['/profile'])">{{article.author.username}}</div>
             </div>
-        </div>
-        <div class="tags">
-            <div (click)="goToUpdate(article.slug)">Update</div>
-            <div style="margin-left: 0.5rem;" (click)="deletePost(article.slug)">Delete</div>
         </div>
     </div>
 </div>

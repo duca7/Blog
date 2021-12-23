@@ -1,0 +1,27 @@
+.form-group{
+   margin-top: 1rem;
+   label{
+      font-weight: 600;
+      padding-bottom:0.2rem
+   }
+}
+
+.form-btn {
+   float: right;
+   margin-top:1.5rem;
+   .btn-submit{
+      padding: 0.6rem 1.3rem;
+      background-color: #000000;
+      color: #ffffff;
+      border: 1px solid #000;
+   }
+   .btn-cancel{
+      padding: 0.6rem 1.3rem;
+      margin-right:1rem;
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #000;
+
+   }
+   
+}

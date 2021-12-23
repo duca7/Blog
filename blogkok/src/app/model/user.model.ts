@@ -4,5 +4,6 @@ export interface User {
   email: string;
   password: string;
   token: string;
-  image: string;
+  image?: string;
+  bio?: string;
 }

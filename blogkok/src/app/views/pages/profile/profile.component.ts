@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EditProfileComponent } from './editProfile/editProfile.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   user!: User | null;
-  constructor(public router: Router, private authService: AuthService) {
+  constructor(
+    public router: Router,
+    private authService: AuthService,
+    public dialog: MatDialog
+  ) {
     authService.getUser().subscribe((user) => {
       console.log(user);
 
@@ -19,4 +24,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  openDialog() {
+    this.dialog.open(EditProfileComponent, {
+      height: '550px',
+      width: '600px',
+    });
+  }
 }

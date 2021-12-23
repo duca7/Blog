@@ -88,3 +88,12 @@
 .name {
     cursor: pointer;
 }
+
+.info-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-icon {
+    color: red;
+}

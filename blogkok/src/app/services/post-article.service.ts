@@ -29,11 +29,17 @@ export class PostArticleService {
     return this.http.post(`${environment.apiUrl}/articles`, { article });
   }
 
-  getAll() {
+  getAll(favorited?: boolean) {
+    return this.http
+      .get<ArticleFake>(`${environment.apiUrl}/articles`)
+      .pipe(pluck('articles'));
+  }
+
+  getAllLikedArticles(favorited?: boolean) {
     return this.http
       .get<ArticleFake>(`${environment.apiUrl}/articles`, {
         params: {
-          "author": this.searchInput
+          "favorited": favorited!
         }
       })
       .pipe(pluck('articles'));

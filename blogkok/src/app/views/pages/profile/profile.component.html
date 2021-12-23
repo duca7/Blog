@@ -3,13 +3,14 @@
         <div class="col-md-2">
             <div class="profile-img">
                 <img [src]="user.image" alt="" class="avt">
+                <button (click)="openDialog()" class="btn-dialog">Edit Profile</button>
             </div>
         </div>
         <div class="col-md-10">
             <div class="profile-head nav nav-tabs">
                 <h5> Introduce</h5>
                 <h6>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    {{user.bio}}
                 </h6>
             </div>
         </div>
