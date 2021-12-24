@@ -384,6 +384,8 @@
     .name {
         font-size: 22px;
         font-weight: 700;
+        color: #000;
+        text-decoration: none;
         cursor: pointer;
     }
 }
@@ -400,4 +402,8 @@
 
 mat-icon {
     color: red;
+}
+
+.favorite>button {
+    background-color: #fff;
 }
