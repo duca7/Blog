@@ -1,13 +1,11 @@
 <div class="container">
-    <h4 class="title">{{articles.length}} Articles</h4>
-
+    <h4 class="title">{{numberOfArticles}} Articles</h4>
 </div>
 <div class="card-container">
     <div class="card" *ngFor="let article of articles">
         <header class="article-header">
             <div>
                 <div class="category-title">
-                    CreatedAt:
                     <span class="date">{{article.createdAt | date:'mediumDate'}}</span>
                 </div>
             </div>
@@ -29,8 +27,8 @@
             </div>
         </div>
         <div class="tags">
-            <div (click)="goToUpdate(article.slug)">Update</div>
-            <div style="margin-left: 0.5rem;" (click)="deletePost(article.slug)">Delete</div>
+            <div class="btn-tags" (click)="goToUpdate(article.slug)">Update</div>
+            <div class="btn-tags" style="margin-left: 0.5rem;" (click)="deletePost(article.slug)">Delete</div>
         </div>
     </div>
 </div>

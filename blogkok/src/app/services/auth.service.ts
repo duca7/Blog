@@ -25,6 +25,7 @@ export class AuthService {
     }
     this.userSubject.next(this.user);
   }
+
   login(email: string, password: string) {
     return this.http
       .post<UserResponse>(`${environment.apiUrl}/users/login`, {
@@ -60,5 +61,43 @@ export class AuthService {
 
   getUser() {
     return this.userSubject.asObservable();
+  }
+
+  getUserByName(username: string) {
+    return this.http.get(`${environment.apiUrl}/profiles/${username}`);
+  }
+
+  updateCurrentUser(
+    username?: string,
+    email?: string,
+    bio?: string,
+    image?: string
+  ) {
+    var updateObject = {
+      bio: bio ?? this.user?.bio,
+      username: username ?? this.user?.username,
+      email: email ?? this.user?.email,
+      image: image ?? this.user?.image,
+    };
+
+    console.log('run?');
+
+    return this.http
+      .put<UserResponse>(`${environment.apiUrl}/users`, {
+        user: updateObject,
+      })
+      .pipe(
+        pluck('user'),
+        map((user: User) => {
+          if (user && user.token) {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.userSubject.next(user);
+            this.user = user;
+            return user;
+          } else {
+            return null;
+          }
+        })
+      );
   }
 }

@@ -5,21 +5,20 @@
         <li *ngFor="let comment of commentList">
             <div class="comment-body">
                 <div class="comment-author">
-                    <img [src]="comment.author.image" alt="avt-comment" class="avt-comment" (click)="router.navigate(['/profile'])">
+                    <img [src]="comment.author.image" alt="avt-comment" class="avt-comment">
                 </div>
                 <div class="comment">
-                    <h6 class="comment-author" (click)="router.navigate(['/profile'])">{{comment.author.username}}</h6>
+                    <a class="comment-author" [routerLink]="'/profile/' + comment.author.username">{{comment.author.username}}</a>
                     <div class="comment-content">
                         <p>{{comment.body}}</p>
                         <button class="btn-delete" (click)="deleteComment(comment._id)">delete</button>
                     </div>
                     <div class="comment-footer">
-                        <span class="date"> {{comment.createdAt | date:'mediumDate' }}</span>
+                        <span class="date"> {{comment.createdAt | date:'mediumDate'}}</span>
                     </div>
                 </div>
             </div>
         </li>
-
     </ul>
 
     <h4 class="template-title">Leave your comment</h4>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BaseModule } from './views/base.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptor } from './services/jwt.interceptor';
@@ -18,6 +18,7 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     BaseModule,
     FormsModule,
     NoopAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

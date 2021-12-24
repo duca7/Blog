@@ -11,6 +11,9 @@ import { PostArticleService } from 'src/app/services/post-article.service';
 })
 export class NavBarComponent {
   user!: User | null;
+  
+  searchInput?: string;
+
   constructor(
     public router: Router,
     private authService: AuthService,
@@ -21,6 +24,8 @@ export class NavBarComponent {
 
       this.user = user;
     });
+
+    
   }
   signout() {
     this.authService.logout();
@@ -29,5 +34,9 @@ export class NavBarComponent {
   goToPost() {
     this.articleService.resetArticle();
     this.router.navigate(['/post']);
+  }
+
+  search() {
+    this.articleService.searchInput = this.searchInput ?? '';
   }
 }

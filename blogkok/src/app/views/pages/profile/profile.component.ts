@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(EditProfileComponent, {
-      height: '350px',
+      height: '550px',
       width: '600px',
     });
   }

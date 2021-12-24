@@ -13,7 +13,8 @@ export class MypostComponent implements OnInit {
     private articleService: PostArticleService,
     public router: Router
   ) {}
-  articles!: ArticleResponse[];
+  articles?: ArticleResponse[];
+  numberOfArticles = 0;
 
   ngOnInit(): void {
     this.getArticleUserName();
@@ -21,7 +22,10 @@ export class MypostComponent implements OnInit {
 
   getArticleUserName() {
     this.articleService.getArticleByUserName().subscribe((articles) => {
+      console.log(articles);
+
       this.articles = articles.articles;
+      this.numberOfArticles = articles.length;
     });
   }
 

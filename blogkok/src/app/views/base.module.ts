@@ -6,9 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [NavBarComponent, FooterComponent],
-  imports: [CommonModule, HttpClientModule, MatMenuModule, MatButtonModule],
+  imports: [CommonModule, HttpClientModule, MatMenuModule, MatButtonModule, FormsModule],
   exports: [NavBarComponent, FooterComponent],
 })
 export class BaseModule {}

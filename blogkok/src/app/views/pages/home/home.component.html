@@ -52,8 +52,8 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6" *ngFor="let article of articles">
                     <div class="entry-post">
                         <div class="top-article">
-                            <img [src]="article.author.image" alt="avt-article" class="avt-article" (click)="router.navigate(['/profile'])">
-                            <p (click)="router.navigate(['/profile'])" class="article-username">{{article.author.username}}</p>
+                            <img [src]="article.author.image" alt="avt-article" class="avt-article">
+                            <a [routerLink]="'/profile/' + article.author.username" class="article-username">{{article.author.username}}</a>
                         </div>
                         <div class="entry-content">
                             <h4 class="title">
