@@ -55,6 +55,7 @@ export class BlogDetailComponent implements OnInit {
       console.log(res);
     });
     this.isFavorited = !this.isFavorited;
+    this.currentArticle.favoritesCount++;
   }
 
   unfavorite() {
@@ -62,5 +63,6 @@ export class BlogDetailComponent implements OnInit {
       console.log(res);
     });
     this.isFavorited = !this.isFavorited;
+    this.currentArticle.favoritesCount--;
   }
 }
