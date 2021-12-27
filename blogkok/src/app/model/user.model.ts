@@ -6,4 +6,6 @@ export interface User {
   token: string;
   image?: string;
   bio?: string;
+  followers?: number;
+  following?: number;
 }

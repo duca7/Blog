@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ArticleRequest, ArticleResponse } from '../model/article.model';
@@ -21,7 +21,7 @@ export class PostArticleService {
     description: '',
   };
 
-  searchInput = '';
+  searchInput = new BehaviorSubject('');
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -29,9 +29,19 @@ export class PostArticleService {
     return this.http.post(`${environment.apiUrl}/articles`, { article });
   }
 
-  getAll(favorited?: boolean) {
+  getAll() {
     return this.http
       .get<ArticleFake>(`${environment.apiUrl}/articles`)
+      .pipe(pluck('articles'));
+  }
+
+  getAllWithSearch(searchInput: string) {
+    return this.http
+      .get<ArticleFake>(`${environment.apiUrl}/articles`, {
+        params: {
+          "author": searchInput
+        }
+      })
       .pipe(pluck('articles'));
   }
 

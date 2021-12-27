@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,6 +14,7 @@ export class EditProfileComponent implements OnInit {
   submitted = false;
 
   constructor(
+    public dialogRef: MatDialogRef<EditProfileComponent>,
     private formBuilder: FormBuilder,
     private authService: AuthService,
   ) { }
@@ -33,12 +35,16 @@ export class EditProfileComponent implements OnInit {
   onFormSubmit() {
     this.submitted = true;
     console.log(this.fval.email.value);
+    console.log(this.fval.username.value);
+    console.log(this.fval.bio.value);
     this.authService.updateCurrentUser(
       this.fval.username.value,
       this.fval.email.value,
       this.fval.bio.value,
       this.fval.image.value
-    )
+    ).subscribe((res) => {
+      this.dialogRef.close();
+    })
   }
 
 }

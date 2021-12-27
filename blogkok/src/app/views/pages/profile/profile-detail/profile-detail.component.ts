@@ -10,12 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ProfileDetailComponent implements OnInit {
   currentUser: any;
   username!: string | null;
+  isFollowed?: boolean;
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
     public router: Router
   ) {
-    this.getName(this.username);
+    // this.getName(this.username);
   }
 
   ngOnInit(): void {
@@ -25,8 +27,24 @@ export class ProfileDetailComponent implements OnInit {
 
   getName(username: any | null) {
     this.authService.getUserByName(username).subscribe((res) => {
-      console.log(res);
       this.currentUser = res;
+      console.log(res);
+      this.isFollowed = this.currentUser.profile.following
+      console.log(this.isFollowed);
     });
+  }
+
+  follow() {
+    this.isFollowed = !this.isFollowed;
+    this.authService.followUser(this.username!).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  unfollow() {
+    this.isFollowed = !this.isFollowed;
+    this.authService.unfollowUser(this.username!).subscribe((res) => {
+      console.log(res);
+    });;
   }
 }

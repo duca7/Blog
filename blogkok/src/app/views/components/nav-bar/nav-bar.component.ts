@@ -37,6 +37,6 @@ export class NavBarComponent {
   }
 
   search() {
-    this.articleService.searchInput = this.searchInput ?? '';
+    this.articleService.searchInput.next(this.searchInput ?? '')
   }
 }
