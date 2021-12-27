@@ -27,17 +27,18 @@
 }
 
 .tags div {
-    font-size: 9px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border: 3px solid #28242f;
-    border-radius: 2rem;
+    font-size: 12px;
+    padding: 0.6rem 1.5rem;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000;
+    margin-right: 1rem;
     cursor: pointer;
 }
 
 .tags div:hover {
-    background-color: grey;
-    color: #ffffff;
+    background-color: #fff;
+    color: #000;
 }
 
 .card .category-title {

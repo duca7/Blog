@@ -22,6 +22,8 @@ export class BlogCommentComponent implements OnInit {
   getAllComment() {
     if (!this.slug) return;
     this.commentService.getAllComment(this.slug).subscribe((res: any) => {
+      console.log(res);
+
       this.commentList = res.comments;
     });
   }
@@ -38,7 +40,6 @@ export class BlogCommentComponent implements OnInit {
 
   deleteComment(commentId: string) {
     if (!this.slug) return;
-
     this.commentService.deleteComment(this.slug, commentId).subscribe((res) => {
       this.getAllComment();
     });

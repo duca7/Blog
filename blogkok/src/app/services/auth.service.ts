@@ -63,20 +63,28 @@ export class AuthService {
     return this.userSubject.asObservable();
   }
 
-  updateCurrentUser(username?: string, email?: string, bio?: string, image?: string) {
+  getUserByName(username: string) {
+    return this.http.get(`${environment.apiUrl}/profiles/${username}`);
+  }
 
+  updateCurrentUser(
+    username?: string,
+    email?: string,
+    bio?: string,
+    image?: string
+  ) {
     var updateObject = {
       bio: bio ?? this.user?.bio,
       username: username ?? this.user?.username,
       email: email ?? this.user?.email,
       image: image ?? this.user?.image,
-    }
+    };
 
-    console.log('run?')
+    console.log('run?');
 
     return this.http
       .put<UserResponse>(`${environment.apiUrl}/users`, {
-        user: updateObject
+        user: updateObject,
       })
       .pipe(
         pluck('user'),
@@ -91,6 +99,13 @@ export class AuthService {
           }
         })
       );
-    
+  }
+
+  followUser(username: string) {
+    return this.http.post(`${environment.apiUrl}/profiles/${username}/follow`, undefined);
+  }
+
+  unfollowUser(username: string) {
+    return this.http.delete(`${environment.apiUrl}/profiles/${username}/follow`, undefined);
   }
 }

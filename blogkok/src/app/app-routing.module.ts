@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogDetailComponent } from './views/pages/blog/blog-detail/blog-detail.component';
+import { ProfileDetailComponent } from './views/pages/profile/profile-detail/profile-detail.component';
 
 const routes: Routes = [
   {
@@ -48,12 +49,19 @@ const routes: Routes = [
         (m) => m.ProfileModule
       ),
   },
+  { path: 'profile/:username', component: ProfileDetailComponent },
   {
     path: 'mypost',
     loadChildren: () =>
       import('./views/pages/mypost/mypost.module').then((m) => m.MypostModule),
   },
-  { path: 'likedarticles', loadChildren: () => import('./views/pages/likedarticles/likedarticles.module').then(m => m.LikedarticlesModule) },
+  {
+    path: 'likedarticles',
+    loadChildren: () =>
+      import('./views/pages/likedarticles/likedarticles.module').then(
+        (m) => m.LikedarticlesModule
+      ),
+  },
 
   {
     path: '**',
