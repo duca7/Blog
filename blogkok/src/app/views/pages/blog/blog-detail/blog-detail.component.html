@@ -17,7 +17,7 @@
                 </div>
                 <div class="info">
                     <div class="info-top">
-                        <a class="name" [routerLink]="'/profile/' + currentArticle.author.username">
+                        <a class="name" (click)="navigateToF5(currentArticle.author.username)">
                             {{currentArticle.author.username}}
                         </a>
                         <div class="favorite">

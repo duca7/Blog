@@ -58,7 +58,7 @@
                     <div class="entry-post">
                         <div class="top-article">
                             <img [src]="article.author.image" alt="avt-article" class="avt-article">
-                            <a [routerLink]="'/profile/' + article.author.username" class="article-username">{{article.author.username}}</a>
+                            <span (click)="navigateToF5(article.author.username)" class="article-username">{{article.author.username}}</span>
                         </div>
                         <div class="entry-content">
                             <h4 class="title">
@@ -72,10 +72,10 @@
                             </a>
                             <hr>
                             <p>{{article.createdAt | date:'mediumDate'}}</p>
+
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommentInfo } from 'src/app/model/comment.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { CommentService } from 'src/app/services/comment.service';
 @Component({
   selector: 'app-blog-comment',
@@ -8,12 +9,17 @@ import { CommentService } from 'src/app/services/comment.service';
   styleUrls: ['./blog-comment.component.scss'],
 })
 export class BlogCommentComponent implements OnInit {
-  constructor(private commentService: CommentService, public router: Router) {}
+  constructor(
+    private commentService: CommentService,
+    public router: Router,
+    public authService: AuthService
+  ) {}
 
   @Input() slug!: string | null;
 
   ngOnInit(): void {
     this.getAllComment();
+    this.authService.user;
   }
 
   comment: string = '';
@@ -43,5 +49,17 @@ export class BlogCommentComponent implements OnInit {
     this.commentService.deleteComment(this.slug, commentId).subscribe((res) => {
       this.getAllComment();
     });
+  }
+
+  navigateToF5(username: string) {
+    if (this.authService.user) {
+      if (this.authService.user.username === username) {
+        this.router.navigate(['/profile']);
+      } else {
+        this.router.navigate(['/profile/' + username]);
+      }
+    } else {
+      this.router.navigate(['/profile/' + username]);
+    }
   }
 }

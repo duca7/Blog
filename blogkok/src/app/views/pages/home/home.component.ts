@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ArticleResponse } from 'src/app/model/article.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { PostArticleService } from 'src/app/services/post-article.service';
 import { SwiperOptions } from 'swiper';
 @Component({
@@ -12,7 +13,8 @@ import { SwiperOptions } from 'swiper';
 export class HomeComponent implements OnInit {
   constructor(
     private articleService: PostArticleService,
-    public router: Router
+    public router: Router,
+    public authService: AuthService
   ) {}
 
   articles!: ArticleResponse[];
@@ -35,6 +37,18 @@ export class HomeComponent implements OnInit {
       console.log(articles);
       this.articles = articles;
     });
+  }
+
+  navigateToF5(username: string) {
+    if (this.authService.user) {
+      if (this.authService.user.username === username) {
+        this.router.navigate(['/profile']);
+      } else {
+        this.router.navigate(['/profile/' + username]);
+      }
+    } else {
+      this.router.navigate(['/profile/' + username]);
+    }
   }
 
   config: SwiperOptions = {
