@@ -18,14 +18,16 @@ export class HomeComponent implements OnInit {
   articles!: ArticleResponse[];
   ngOnInit(): void {
     // this.getAll();
-    this.articleService.searchInput.pipe(
-      switchMap((input) => {
-        return this.articleService.getAllWithSearch(input);
-      })
-    ).subscribe((value) => {
-      console.log(value)
-      this.articles = value
-    })
+    this.articleService.searchInput
+      .pipe(
+        switchMap((input) => {
+          return this.articleService.getAllWithSearch(input);
+        })
+      )
+      .subscribe((value) => {
+        console.log(value);
+        this.articles = value;
+      });
   }
 
   getAll() {
@@ -34,33 +36,6 @@ export class HomeComponent implements OnInit {
       this.articles = articles;
     });
   }
-
-  Images: Array<object> = [
-    {
-      src: 'https://loremflickr.com/g/600/400/paris',
-      alt: 'Image 1',
-    },
-    {
-      src: 'https://loremflickr.com/600/400/brazil,rio',
-      alt: 'Image 2',
-    },
-    {
-      src: 'https://loremflickr.com/600/400/paris,girl/all',
-      alt: 'Image 3',
-    },
-    {
-      src: 'https://loremflickr.com/600/400/brazil,rio',
-      alt: 'Image 4',
-    },
-    {
-      src: 'https://loremflickr.com/600/400/paris,girl/all',
-      alt: 'Image 5',
-    },
-    {
-      src: 'https://loremflickr.com/600/400/brazil,rio',
-      alt: 'Image 6',
-    },
-  ];
 
   config: SwiperOptions = {
     pagination: {

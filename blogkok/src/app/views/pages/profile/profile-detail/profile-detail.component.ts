@@ -28,8 +28,9 @@ export class ProfileDetailComponent implements OnInit {
   getName(username: any | null) {
     this.authService.getUserByName(username).subscribe((res) => {
       this.currentUser = res;
+      
       console.log(res);
-      this.isFollowed = this.currentUser.profile.following
+      this.isFollowed = this.currentUser.profile.following;
       console.log(this.isFollowed);
     });
   }
@@ -45,6 +46,6 @@ export class ProfileDetailComponent implements OnInit {
     this.isFollowed = !this.isFollowed;
     this.authService.unfollowUser(this.username!).subscribe((res) => {
       console.log(res);
-    });;
+    });
   }
 }

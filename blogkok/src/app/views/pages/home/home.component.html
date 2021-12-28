@@ -1,43 +1,29 @@
-<swiper [config]="config" class="swiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://loremflickr.com/g/600/400/paris" alt="img 1"></div>
-        <div class="swiper-slide"><img src="https://loremflickr.com/600/400/brazil,rio" alt="img 2"></div>
-        <div class="swiper-slide"><img src="https://loremflickr.com/600/400/paris,girl/all" alt="img 3"></div>
-        <div class="swiper-slide"><img src="https://loremflickr.com/g/600/400/paris" alt="img 4"></div>
-        <div class="swiper-slide"><img src="https://loremflickr.com/600/400/brazil,rio" alt="img 5"></div>
-        <div class="swiper-slide"><img src="https://loremflickr.com/600/400/paris,girl/all" alt="img 6"></div>
-    </div>
-
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</swiper>
-
 <section class="banner-section">
     <div class="banner-slider">
         <div class="sinlge-banner">
             <div class="banner-wrapper ">
                 <div class="banner-bg" style="background-image: url(../../../../../assets/images/01.jpg);"></div>
                 <div class="banner-content">
-                    <!-- <div *ngFor="let article of articles">
-                        <h3 class="title">
-                            {{article.title}}
-                        </h3>
-                        <ul class="meta">
-                            <li><a href="#">By - Zhon Smith</a></li>
-                            <li><a href="#">Travel,</a><a href="#">Design,</a><a href="#">Nature</a></li>
-                        </ul>
-                        <p>
-                            {{article.description}}
-                        </p>
-                        <a [routerLink]="'blog/' + article.slug" class="read-more">
-                            Read More
-                        </a>
-                    </div> -->
-
+                    <swiper [config]="config" class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" *ngFor="let article of articles">
+                                <h3 class="title">
+                                    {{article.title}}
+                                </h3>
+                                <ul class="meta">
+                                    <li>By - {{article.author.username}}</li>
+                                    <li>Created at: {{article.createdAt | date:'mediumDate'}}</li>
+                                </ul>
+                                <p>
+                                    {{article.description}}
+                                </p>
+                                <a [routerLink]="'blog/' + article.slug" class="read-more">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </swiper>
                 </div>
             </div>
         </div>
