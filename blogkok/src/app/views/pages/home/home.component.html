@@ -71,8 +71,14 @@
                                 Read More
                             </a>
                             <hr>
-                            <p>{{article.createdAt | date:'mediumDate'}}</p>
+                            <div class="bottom-card">
+                                <p> <b>Created at:</b> {{article.createdAt | date:'mediumDate'}}</p>
+                                <div class="tym">
 
+                                    <mat-icon>favorite</mat-icon>
+                                    <p>{{article.favoritesCount}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

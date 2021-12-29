@@ -231,7 +231,7 @@
 }
 
 mat-icon {
-    color: red;
+    color: #fd3a28;
 }
 
 .image-boxes-area {
@@ -248,4 +248,20 @@ mat-icon {
 
 .swiper {
     height: 380px;
+}
+
+.bottom-card {
+    display: flex;
+    justify-content: space-between;
+    .tym {
+        display: flex;
+        p {
+            font-weight: 600;
+        }
+        mat-icon {
+            width: 15px;
+            height: 15px;
+            padding-right: 35px;
+        }
+    }
 }
