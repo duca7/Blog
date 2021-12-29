@@ -8,10 +8,11 @@
                     <img [src]="comment.author.image" alt="avt-comment" class="avt-comment">
                 </div>
                 <div class="comment">
-                    <a class="comment-author" [routerLink]="'/profile/' + comment.author.username">{{comment.author.username}}</a>
+                    <span class="comment-author" (click)="navigateToF5(comment.author.username)">{{comment.author.username}}</span>
                     <div class="comment-content">
                         <p>{{comment.body}}</p>
-                        <button class="btn-delete" (click)="deleteComment(comment._id)">delete</button>
+                        <mat-icon (click)="deleteComment(comment._id)" *ngIf="(authService.user)&&(authService.user.username === comment.author.username)">delete
+                        </mat-icon>
                     </div>
                     <div class="comment-footer">
                         <span class="date"> {{comment.createdAt | date:'mediumDate'}}</span>
@@ -30,7 +31,7 @@
                         </textarea>
                 </div>
                 <div class="col-12">
-                    <button (click)="createComment()">Post</button>
+                    <button (click)="createComment()">Comment</button>
                 </div>
             </div>
         </div>

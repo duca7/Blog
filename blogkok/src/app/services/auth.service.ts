@@ -100,4 +100,12 @@ export class AuthService {
         })
       );
   }
+
+  followUser(username: string) {
+    return this.http.post(`${environment.apiUrl}/profiles/${username}/follow`, undefined);
+  }
+
+  unfollowUser(username: string) {
+    return this.http.delete(`${environment.apiUrl}/profiles/${username}/follow`, undefined);
+  }
 }

@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptor } from './services/jwt.interceptor';
-
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,7 +18,8 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     BaseModule,
     FormsModule,
     NoopAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxUsefulSwiperModule,
   ],
   providers: [
     {

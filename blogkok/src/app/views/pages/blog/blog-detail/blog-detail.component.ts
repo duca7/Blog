@@ -55,12 +55,26 @@ export class BlogDetailComponent implements OnInit {
       console.log(res);
     });
     this.isFavorited = !this.isFavorited;
+    this.currentArticle.favoritesCount++;
   }
 
   unfavorite() {
-    this.articleService.removeFavorite(this.slug!).subscribe((res)=> {
+    this.articleService.removeFavorite(this.slug!).subscribe((res) => {
       console.log(res);
     });
     this.isFavorited = !this.isFavorited;
+    this.currentArticle.favoritesCount--;
+  }
+
+  navigateToF5(username: string) {
+    if (this.authService.user) {
+      if (this.authService.user.username === username) {
+        this.router.navigate(['/profile']);
+      } else {
+        this.router.navigate(['/profile/' + username]);
+      }
+    } else {
+      this.router.navigate(['/profile/' + username]);
+    }
   }
 }

@@ -25,7 +25,7 @@ export class MypostComponent implements OnInit {
       console.log(articles);
 
       this.articles = articles.articles;
-      this.numberOfArticles = articles.length;
+      this.numberOfArticles = articles.articles.length;
     });
   }
 

@@ -7,6 +7,7 @@ import { BaseModule } from '../../base.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -15,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     MatIconModule,
     BaseModule,
+    NgxUsefulSwiperModule,
   ],
 })
 export class HomeModule {}

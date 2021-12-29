@@ -7,19 +7,17 @@
                     {{currentArticle.description}}
                 </p>
             </div>
-
             <div class="entry-content">
                 <p class="has-dropcap" [innerHTML]="currentArticle.body">
                 </p>
             </div>
-
             <div class="author border-top">
                 <div class="profile" *ngIf="currentArticle">
                     <img [src]="currentArticle.author.image" alt="avt-article" class="avt-article">
                 </div>
                 <div class="info">
                     <div class="info-top">
-                        <a class="name" [routerLink]="'/profile/' + currentArticle.author.username">
+                        <a class="name" (click)="navigateToF5(currentArticle.author.username)">
                             {{currentArticle.author.username}}
                         </a>
                         <div class="favorite">
@@ -31,7 +29,6 @@
                             </button>
                         </div>
                     </div>
-
                     <div class="date">Published on {{currentArticle.createdAt | date:'mediumDate'}} </div>
                     <div class="date">Likes: {{currentArticle.favoritesCount}} </div>
                 </div>

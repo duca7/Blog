@@ -4,21 +4,26 @@
             <div class="banner-wrapper ">
                 <div class="banner-bg" style="background-image: url(../../../../../assets/images/01.jpg);"></div>
                 <div class="banner-content">
-                    <h3 class="title">
-                        <a [routerLink]="['/blog']">
-                            The Olivier da Costa restaurant experience in Lisbon
-                        </a>
-                    </h3>
-                    <ul class="meta">
-                        <li><a href="#">By - Zhon Smith</a></li>
-                        <li><a href="#">Travel,</a><a href="#">Design,</a><a href="#">Nature</a></li>
-                    </ul>
-                    <p>
-                        When it comes to creating is a website for your busin an attractive design will only get you far. With people increasingly using their tablets and smartphones and shop online,...
-                    </p>
-                    <a href="blog-details.html" class="read-more">
-                        Read More <i class="fas fa-long-arrow-right"></i>
-                    </a>
+                    <swiper [config]="config" class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" *ngFor="let article of articles">
+                                <h3 class="title">
+                                    {{article.title}}
+                                </h3>
+                                <ul class="meta">
+                                    <li>By - {{article.author.username}}</li>
+                                    <li>Created at: {{article.createdAt | date:'mediumDate'}}</li>
+                                </ul>
+                                <p>
+                                    {{article.description}}
+                                </p>
+                                <a [routerLink]="'blog/' + article.slug" class="read-more">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </swiper>
                 </div>
             </div>
         </div>
@@ -53,7 +58,7 @@
                     <div class="entry-post">
                         <div class="top-article">
                             <img [src]="article.author.image" alt="avt-article" class="avt-article">
-                            <a [routerLink]="'/profile/' + article.author.username" class="article-username">{{article.author.username}}</a>
+                            <span (click)="navigateToF5(article.author.username)" class="article-username">{{article.author.username}}</span>
                         </div>
                         <div class="entry-content">
                             <h4 class="title">
@@ -66,11 +71,17 @@
                                 Read More
                             </a>
                             <hr>
-                            <p>{{article.createdAt | date:'mediumDate'}}</p>
+                            <div class="bottom-card">
+                                <p> <b>Created at:</b> {{article.createdAt | date:'mediumDate'}}</p>
+                                <div class="tym">
+
+                                    <mat-icon>favorite</mat-icon>
+                                    <p>{{article.favoritesCount}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

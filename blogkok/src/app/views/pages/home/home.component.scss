@@ -60,10 +60,10 @@
                 max-width: 90%;
             }
             .title {
-                font-size: 38px;
-                line-height: 1.28;
+                font-size: 30px;
+                line-height: 1.25;
                 font-weight: 800;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 @include respond-below(md) {
                     font-size: 32px;
                     margin-bottom: 30px;
@@ -115,49 +115,6 @@
                 &:hover {
                     opacity: 0.8;
                     padding-left: 8px;
-                }
-            }
-        }
-    }
-    .banner-nav {
-        position: absolute;
-        bottom: 40px;
-        left: 55px;
-        z-index: 2;
-        background-color: $white;
-        border: 1px solid #cacaca;
-        @media (min-width: 1400px) {
-            left: 130px;
-        }
-        @include respond-below(sm) {
-            bottom: 15px;
-            left: 30px;
-        }
-        .slick-arrow {
-            width: 70px;
-            height: 70px;
-            background-color: $white;
-            border: none;
-            color: $black;
-            @include respond-below(md) {
-                height: 50px;
-                width: 50px;
-            }
-            @include respond-below(sm) {
-                height: 45px;
-                width: 45px;
-            }
-            &.prev-arrow {
-                position: relative;
-                &::after {
-                    position: absolute;
-                    content: "";
-                    background-color: #b6b6b6;
-                    height: 8px;
-                    width: 2px;
-                    right: -1px;
-                    top: 50%;
-                    transform: translateY(-50%);
                 }
             }
         }
@@ -274,7 +231,7 @@
 }
 
 mat-icon {
-    color: red;
+    color: #fd3a28;
 }
 
 .image-boxes-area {
@@ -287,4 +244,24 @@ mat-icon {
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
+}
+
+.swiper {
+    height: 380px;
+}
+
+.bottom-card {
+    display: flex;
+    justify-content: space-between;
+    .tym {
+        display: flex;
+        p {
+            font-weight: 600;
+        }
+        mat-icon {
+            width: 15px;
+            height: 15px;
+            padding-right: 35px;
+        }
+    }
 }
