@@ -50,7 +50,7 @@
                             "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumError": "1.06 MB"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -109,6 +109,14 @@
                             "src/styles.scss"
                         ],
                         "scripts": []
+                    }
+                },
+                "deploy": {
+                    "builder": "@netlify-builder/deploy:deploy",
+                    "options": {
+                        "outputPath": "dist/blogkok",
+                        "netlifyToken": "kzSu6O0mChdttAoPbWRgg7E9BzDQzjs4w3Khj0ze1fU",
+                        "siteId": "2dcb1696-47b0-490d-803b-67183987a127"
                     }
                 }
             }
