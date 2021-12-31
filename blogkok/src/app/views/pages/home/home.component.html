@@ -1,35 +1,4 @@
-<section class="banner-section">
-    <div class="banner-slider">
-        <div class="sinlge-banner">
-            <div class="banner-wrapper ">
-                <div class="banner-bg" style="background-image: url(../../../../../assets/images/01.jpg);"></div>
-                <div class="banner-content">
-                    <swiper [config]="config" class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" *ngFor="let article of articles">
-                                <h3 class="title">
-                                    {{article.title}}
-                                </h3>
-                                <ul class="meta">
-                                    <li>By - {{article.author.username}}</li>
-                                    <li>Created at: {{article.createdAt | date:'mediumDate'}}</li>
-                                </ul>
-                                <p>
-                                    {{article.description}}
-                                </p>
-                                <a [routerLink]="'blog/' + article.slug" class="read-more">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </swiper>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="banner-nav"></div>
-</section>
+<app-home-banner></app-home-banner>
 <section class="image-boxes-area border-top">
     <div class="container mt-5">
         <div class="image-boxes">
